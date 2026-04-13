@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => /twitter|linkedin|github|x$/i.test\\(k\\)\\); console.log\\(keys.join\\('\\\\n'\\)\\)\")",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => /^\\(Lucide\\)?\\(Share|External|Link|Rss|AtSign|MessageCircle|Send|Users|Code\\)/i.test\\(k\\) && !k.startsWith\\('Lucide'\\)\\); console.log\\(keys.slice\\(0,20\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(npm run:*)"
+    ]
+  }
+}
