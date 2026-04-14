@@ -88,7 +88,7 @@ export default function StatsSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {STATS.map((stat) => (
             <div key={stat.label} data-stat className="text-center">
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-foreground mb-2">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>
               <div className="text-sm sm:text-base font-semibold text-foreground mb-1">{stat.label}</div>

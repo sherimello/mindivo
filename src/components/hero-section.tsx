@@ -39,7 +39,7 @@ export default function HeroSection() {
         {/* Headline */}
         <div ref={headlineRef} className="space-y-2 mb-6 text-center">
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] animate-fadeInUp">
-            <span className="bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+            <span className="text-foreground">
               Transform Your
             </span>
           </div>

@@ -309,7 +309,7 @@ export default function GlobeSection() {
 
                 {/* Headline */}
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
-                  <div className="bg-gradient-to-r from-foreground to-foreground/75 bg-clip-text text-transparent">
+                  <div className="text-foreground">
                     {chapter.title}
                   </div>
                   <div className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">

@@ -152,7 +152,7 @@ export default function ServicesSection() {
             What We Build
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-5">
-            <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <span className="text-foreground">
               Software That Moves Your
             </span>
             <br />

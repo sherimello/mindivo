@@ -51,15 +51,15 @@
 /* Mindivo — Old photograph Light theme */
 :root {
   --background: #FDFBD4;
-  --foreground: #545333;
+  --foreground: #000000;
   --card: #D9D7B6;
-  --card-foreground: #545333;
+  --card-foreground: #000000;
   --popover: #D9D7B6;
-  --popover-foreground: #545333;
-  --primary: #545333;
+  --popover-foreground: #000000;
+  --primary: #000000;
   --primary-foreground: #FDFBD4;
   --secondary: #D9D7B6;
-  --secondary-foreground: #545333;
+  --secondary-foreground: #000000;
   --muted: #D9D7B6;
   --muted-foreground: #878672;
   --accent: #878672;
@@ -75,13 +75,13 @@
   --chart-5: #878672;
   --radius: 0.625rem;
   --sidebar: #D9D7B6;
-  --sidebar-foreground: #545333;
-  --sidebar-primary: #545333;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #000000;
   --sidebar-primary-foreground: #FDFBD4;
   --sidebar-accent: #878672;
   --sidebar-accent-foreground: #FDFBD4;
   --sidebar-border: #878672;
-  --sidebar-ring: #545333;
+  --sidebar-ring: #000000;
 }
 
 /* Mindivo — Old photograph Dark theme (Deep & High Contrast) */
