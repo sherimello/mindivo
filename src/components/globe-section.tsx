@@ -72,7 +72,7 @@ const CHAPTERS = [
     globeStyle: {
       top: 0,
       left: 0,
-      transform: 'translate3d(90vw, 15vh, 0) translate3d(-50%, -50%, 0) scale3d(2, 2, 1)',
+      transform: 'translate3d(10vw, 15vh, 0) translate3d(-50%, -50%, 0) scale3d(2, 2, 1)',
       opacity: '0.85',
       willChange: 'transform'
     },
@@ -252,7 +252,7 @@ export default function GlobeSection() {
           className="absolute inset-0 transition-all duration-[1400ms] ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none"
           style={{
             background: `radial-gradient(ellipse 55% 45% at ${
-              activeChapter === 2 ? '15%' : activeChapter === 3 ? '50%' : '78%'
+              activeChapter === 2 ? '10%' : activeChapter === 3 ? '50%' : '78%'
             } ${activeChapter === 1 ? '35%' : '55%'}, color-mix(in srgb, var(--primary) 7%, transparent) 0%, transparent 70%)`,
           }}
         />
