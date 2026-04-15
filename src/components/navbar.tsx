@@ -3,39 +3,49 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { Menu, X, ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
 
-const NAV_LINKS = [
-  { label: 'Services',  href: '#services'  },
-  { label: 'How We Work', href: '#process' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Contact',   href: '#contact'   },
+const HOME_NAV_LINKS = [
+  { label: 'Services',    href: '#services'  },
+  { label: 'How We Work', href: '#process'   },
+  { label: 'Portfolio',   href: '#portfolio' },
+  { label: 'Contact',     href: '#contact'   },
+];
+
+const PROJECT_NAV_LINKS = [
+  { label: 'Overview', href: '#overview' },
+  { label: 'Gallery',  href: '#gallery'  },
+  { label: 'Results',  href: '#results'  },
+  { label: 'Process',  href: '#process'  },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen]   = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+
+  const pathname    = usePathname();
+  const router      = useRouter();
+  const isProjectPage = /^\/projects\/.+/.test(pathname);
+  const navLinks    = isProjectPage ? PROJECT_NAV_LINKS : HOME_NAV_LINKS;
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const onScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Background styling
       setScrolled(currentScrollY > 24);
 
-      // Auto-hide logic
       if (currentScrollY > lastScrollY && currentScrollY > 64) {
         setIsVisible(false);
-        setMenuOpen(false); // Close menu if scrolling down automatically
+        setMenuOpen(false);
       } else {
         setIsVisible(true);
       }
-      
+
       lastScrollY = currentScrollY;
     };
 
@@ -45,8 +55,28 @@ export default function Navbar() {
 
   const handleNav = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: 'smooth' });
+
+    if (href.startsWith('#')) {
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else if (!isProjectPage) {
+        // On homepage but section not yet rendered — shouldn't happen, but guard.
+        router.push(`/${href}`);
+      }
+    } else {
+      router.push(href);
+    }
+  };
+
+  const handleCtaClick = () => {
+    setMenuOpen(false);
+    if (isProjectPage) {
+      // Navigate to homepage contact section
+      router.push('/#contact');
+    } else {
+      handleNav('#contact');
+    }
   };
 
   return (
@@ -62,7 +92,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-1 group">
           <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center">
             <Image src="/logo-light.png" alt="Mindivo Logo (Light)" width={48} height={48} className="object-cover w-full h-full dark:hidden" />
-            <Image src="/logo-dark.png" alt="Mindivo Logo (Dark)" width={48} height={48} className="object-cover w-full h-full hidden dark:block" />
+            <Image src="/logo-dark.png"  alt="Mindivo Logo (Dark)"  width={48} height={48} className="object-cover w-full h-full hidden dark:block" />
           </div>
           <span className="text-lg font-bold tracking-tight">
             <span className="text-foreground">Mind</span>
@@ -72,8 +102,19 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
+          {/* Back link — only on project pages */}
+          {isProjectPage && (
+            <Link
+              href="/#portfolio"
+              className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              All Projects
+            </Link>
+          )}
+
           <ul className="flex items-center gap-1">
-            {NAV_LINKS.map(({ label, href }) => (
+            {navLinks.map(({ label, href }) => (
               <li key={label}>
                 <button
                   onClick={() => handleNav(href)}
@@ -84,14 +125,14 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          
+
           <div className="flex items-center gap-3 border-l border-border/50 pl-6">
             <ThemeToggle />
             <button
-              onClick={() => handleNav('#contact')}
+              onClick={handleCtaClick}
               className="px-5 py-2 rounded-xl text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
             >
-              Start a Project
+              {isProjectPage ? 'Work With Us' : 'Start a Project'}
             </button>
           </div>
         </div>
@@ -112,10 +153,20 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={cn(
         'md:hidden overflow-hidden transition-all duration-300 ease-in-out',
-        menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+        menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
       )}>
         <div className="bg-background/95 backdrop-blur-xl border-b border-border/50 px-4 pb-4 pt-2 space-y-1">
-          {NAV_LINKS.map(({ label, href }) => (
+          {isProjectPage && (
+            <Link
+              href="/#portfolio"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent/60 transition-all"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              All Projects
+            </Link>
+          )}
+          {navLinks.map(({ label, href }) => (
             <button
               key={label}
               onClick={() => handleNav(href)}
@@ -125,10 +176,10 @@ export default function Navbar() {
             </button>
           ))}
           <button
-            onClick={() => handleNav('#contact')}
+            onClick={handleCtaClick}
             className="w-full mt-2 px-4 py-3 rounded-xl text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-all"
           >
-            Start a Project
+            {isProjectPage ? 'Work With Us' : 'Start a Project'}
           </button>
         </div>
       </div>
