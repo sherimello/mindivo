@@ -26,8 +26,7 @@ export default function Footer() {
           <div className="col-span-2">
             <div className="flex items-center gap-1 mb-4">
               <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center">
-                <Image src="/logo-light.png" alt="Mindivo Logo (Light)" width={48} height={48} className="object-cover w-full h-full dark:hidden" />
-                <Image src="/logo-dark.png" alt="Mindivo Logo (Dark)" width={48} height={48} className="object-cover w-full h-full hidden dark:block" />
+                <Image src="/logo-light.png" alt="Mindivo Logo" width={48} height={48} className="object-cover w-full h-full dark:invert" />
               </div>
               <span className="text-lg font-bold tracking-tight">
                 <span className="text-foreground">Mind</span>

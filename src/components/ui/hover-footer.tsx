@@ -170,13 +170,13 @@ const footerLinks = [
 const contactInfo = [
   {
     icon: <Mail size={18} className="text-[#3ca2fa]" />,
-    text: "hello@mindivo.com",
-    href: "mailto:hello@mindivo.com",
+    text: "admin@mindivo.com",
+    href: "mailto:admin@mindivo.com",
   },
   {
     icon: <Phone size={18} className="text-[#3ca2fa]" />,
-    text: "+1 (800) 555-0190",
-    href: "tel:+18005550190",
+    text: "+1 (470) 909-8452",
+    href: "tel:+14709098452",
   },
   {
     icon: <MapPin size={18} className="text-[#3ca2fa]" />,
@@ -204,14 +204,7 @@ export function HoverFooter() {
                   alt="Mindivo"
                   width={40}
                   height={40}
-                  className="object-cover w-full h-full dark:hidden"
-                />
-                <Image
-                  src="/logo-dark.png"
-                  alt="Mindivo"
-                  width={40}
-                  height={40}
-                  className="object-cover w-full h-full hidden dark:block"
+                  className="object-cover w-full h-full dark:invert"
                 />
               </div>
               <span className="text-foreground text-2xl font-bold">

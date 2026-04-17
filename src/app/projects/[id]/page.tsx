@@ -146,7 +146,7 @@ export default async function ProjectPage({
         </section>
 
         {/* ── Tech Stack ── */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <section id="tech-stack" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-10 flex items-center gap-3">
             <span className="w-8 h-px bg-primary/30" />
             Tech Stack
@@ -203,7 +203,7 @@ export default async function ProjectPage({
 
 
         {/* ── Related Projects ── */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <section id="related" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-muted-foreground mb-10 flex items-center gap-3">
             <span className="w-8 h-px bg-primary/30" />
             More Work
