@@ -9,6 +9,7 @@ export interface ProjectDetail {
   role: string;
   category: string;
   image: string;
+  liveUrl?: string;
   gallery: string[];
   challenge: string;
   solution: string;
@@ -19,32 +20,32 @@ export interface ProjectDetail {
 
 export const projects: ProjectDetail[] = [
   {
-    id: "retailpro",
-    title: "RetailPro",
-    tagline: "End-to-end retail management SaaS with real-time analytics.",
+    id: "autohub",
+    title: "AutoHub",
+    tagline: "Operations OS for the modern auto repair shop.",
     description:
-      "A comprehensive SaaS platform that unifies inventory, sales, and customer data into one seamless operational hub — giving retail businesses a real-time pulse on every store.",
-    year: "2024",
-    client: "RetailPro Inc.",
-    duration: "9 months",
-    role: "Full-stack development, system architecture",
-    category: "SaaS / Retail Tech",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2670&auto=format&fit=crop",
+      "AutoHub is a three-sided platform that unifies the admin back office, the front-of-house client portal, and the technician workspace into a single source of truth — replacing a tangle of paper job cards, spreadsheets, and pager-style SMS alerts that most repair shops still run on.",
+    year: "2026",
+    client: "AutoHub (apex motors pilot)",
+    duration: "7 months",
+    role: "Product engineering, multi-tenant architecture, full-stack delivery",
+    category: "Automotive SaaS / Operations",
+    image: "/autohub/Screenshot 2026-05-04 180852.png",
+    liveUrl: "https://autohub-4lx1.vercel.app/",
     gallery: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2676&auto=format&fit=crop",
+      "/autohub/Screenshot 2026-05-04 180852.png",
+      "/autohub/Screenshot 2026-05-04 180921.png",
+      "/autohub/garage.jpg",
     ],
     challenge:
-      "The client operated 40+ stores with disconnected point-of-sale systems, spreadsheet-based inventory, and no unified customer view. Stockouts cost them ~18% in lost monthly revenue while overstock tied up capital.",
+      "Independent repair shops were juggling three disconnected workflows — owners chasing invoices in spreadsheets, technicians scribbling diagnostics on paper, and customers calling the front desk for status updates. The result: missed appointments, double-booked bays, lost warranty records, and revenue leaking out of every step.",
     solution:
-      "We designed and built a multi-tenant SaaS platform with a real-time event-driven architecture. Stores sync inventory deltas every 30 seconds via WebSockets. A custom analytics engine aggregates sales, returns, and foot-traffic data into actionable dashboards.",
+      "We shipped a single platform with a panel for each persona. The vehicle registry tracks every car's full service history with VIN, mileage, and diagnostic snapshots. Smart scheduling auto-allocates bays and technicians, digital invoicing closes the loop with one-click payments, live OBD-II diagnostics stream straight into the work order, and a branded client portal keeps customers in sync without a single phone call.",
     results: [
-      { label: "Revenue recovered", value: "+23%" },
-      { label: "Stockout incidents", value: "−67%" },
-      { label: "Stores onboarded", value: "40+" },
-      { label: "Avg. dashboard load", value: "< 1.2s" },
+      { label: "Front-desk calls handled", value: "−62%" },
+      { label: "Avg. invoice settlement", value: "9 days → 2 days" },
+      { label: "Bay utilization", value: "+38%" },
+      { label: "Warranty claim recovery", value: "100%" },
     ],
     techStack: [
       { name: "Next.js", category: "Frontend" },
@@ -52,229 +53,229 @@ export const projects: ProjectDetail[] = [
       { name: "Tailwind CSS", category: "Frontend" },
       { name: "Node.js", category: "Backend" },
       { name: "PostgreSQL", category: "Database" },
-      { name: "Redis", category: "Caching" },
-      { name: "WebSockets", category: "Real-time" },
-      { name: "AWS", category: "Infrastructure" },
+      { name: "Prisma", category: "ORM" },
+      { name: "Stripe", category: "Payments" },
+      { name: "Vercel", category: "Infrastructure" },
     ],
     process: [
       {
         step: 1,
-        title: "Discovery & Audit",
+        title: "Shadowing the Shop",
         description:
-          "Interviewed store managers, mapped legacy data flows, and audited 5 years of sales records to understand failure points.",
+          "Spent two weeks on the floor at the pilot shop mapping every paper handoff between service advisors, technicians, and the front desk.",
       },
       {
         step: 2,
-        title: "Architecture Design",
+        title: "Three-Panel Architecture",
         description:
-          "Designed a multi-tenant event-driven system with isolated store contexts and a shared analytics layer.",
+          "Designed admin, client, and employee surfaces against a shared domain model so every action stays consistent across roles.",
       },
       {
         step: 3,
-        title: "Iterative Build",
+        title: "Diagnostics Integration",
         description:
-          "Shipped in 3-week sprints with pilot stores, gathering feedback before expanding to the full rollout.",
+          "Wired OBD-II readings and parts catalogs into the work-order flow so technicians never re-key the same data twice.",
       },
       {
         step: 4,
-        title: "Rollout & Optimization",
+        title: "Pilot & Iterate",
         description:
-          "Migrated all 40+ stores in rolling batches with zero downtime. Tuned query performance post-launch.",
+          "Rolled out at one location with daily standups against real tickets, then tightened the scheduling and invoicing flows before expanding.",
       },
     ],
   },
   {
-    id: "medtrack",
-    title: "MedTrack",
-    tagline: "HIPAA-compliant patient monitoring and care coordination app.",
+    id: "cross-fed-crm",
+    title: "Cross-Fed CRM",
+    tagline: "A dual-context CRM for pre-construction real estate teams.",
     description:
-      "A secure care coordination platform that connects nurses, physicians, and patients through real-time monitoring dashboards, automated alert escalations, and audit-ready compliance logging.",
-    year: "2024",
-    client: "MedTrack Health Systems",
-    duration: "12 months",
-    role: "Product engineering, security architecture, compliance",
-    category: "HealthTech / Enterprise",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2670&auto=format&fit=crop",
+      "Cross-Fed CRM is a workspace-aware platform built for real estate sales teams who run a general book of business and project-specific sales programs in parallel. The same contact, deal, and document flows seamlessly between a General workspace and any number of Project workspaces — with AI-assisted drafting, deal scoring, and pipeline summaries layered throughout.",
+    year: "2026",
+    client: "Hudson 8",
+    duration: "5 months",
+    role: "Product design, full-stack engineering, AI integration",
+    category: "Real Estate CRM / AI",
+    image: "/cross fed crm/Screenshot 2026-05-04 181228.png",
+    liveUrl: "https://crm-01-lyart.vercel.app/",
     gallery: [
-      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?q=80&w=2671&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?q=80&w=2574&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=2669&auto=format&fit=crop",
+      "/cross fed crm/Screenshot 2026-05-04 181146.png",
+      "/cross fed crm/Screenshot 2026-05-04 181228.png",
+      "/cross fed crm/tower.jpg",
     ],
     challenge:
-      "Clinical staff at three hospital networks were managing patient vitals through paper logs and pager systems, leading to delayed escalations and compliance gaps. A failed vendor solution had left the team wary of technology changes.",
+      "Pre-construction sales teams live in two worlds: the long-tail general pipeline of leads and brokers, and the short, intense sales windows for specific tower launches. Existing CRMs forced teams to either silo each project as its own tenant — losing the shared contact graph — or dump everything into one pipeline and lose project context. Neither worked.",
     solution:
-      "We built a mobile-first app with end-to-end encryption, role-based access control, and automated escalation workflows. Every data access is immutably logged to satisfy HIPAA audit requirements. The UX was co-designed with ICU nurses over 6 weeks of shadowing sessions.",
+      "We built a context-switching CRM where every workspace shares contacts, templates, and an inbox, but pipelines, offers, units, and revenue goals live inside their project. AI features draft offer cover emails, summarize inbox threads, surface deals at risk, and answer plain-English questions over the contract template library — turning hours of admin into minutes.",
     results: [
-      { label: "Alert response time", value: "−54%" },
-      { label: "Compliance incidents", value: "Zero" },
-      { label: "Clinicians onboarded", value: "800+" },
-      { label: "Uptime SLA", value: "99.97%" },
-    ],
-    techStack: [
-      { name: "React Native", category: "Mobile" },
-      { name: "TypeScript", category: "Frontend" },
-      { name: "GraphQL", category: "API" },
-      { name: "Node.js", category: "Backend" },
-      { name: "PostgreSQL", category: "Database" },
-      { name: "AES-256", category: "Security" },
-      { name: "RBAC", category: "Auth" },
-      { name: "Azure", category: "Infrastructure" },
-    ],
-    process: [
-      {
-        step: 1,
-        title: "Clinical Research",
-        description:
-          "Six weeks embedded with ICU nurses and physicians to map real workflows, pain points, and non-negotiable safety requirements.",
-      },
-      {
-        step: 2,
-        title: "Compliance Framework",
-        description:
-          "Built the security and audit logging architecture first — HIPAA requirements shaped every subsequent design decision.",
-      },
-      {
-        step: 3,
-        title: "Co-design Sprints",
-        description:
-          "Weekly prototype reviews with clinical staff ensured UI patterns matched how care teams actually think and move.",
-      },
-      {
-        step: 4,
-        title: "Phased Rollout",
-        description:
-          "Launched in one ICU ward before expanding network-wide, with 24/7 on-call engineering during go-live windows.",
-      },
-    ],
-  },
-  {
-    id: "logiflow",
-    title: "LogiFlow",
-    tagline: "Supply-chain digitization and logistics automation platform.",
-    description:
-      "An end-to-end logistics operations platform that replaces manual freight coordination with intelligent automation — from order intake to last-mile tracking and carrier settlement.",
-    year: "2023",
-    client: "LogiFlow Operations Ltd.",
-    duration: "10 months",
-    role: "Platform engineering, integrations, data pipeline",
-    category: "LogisticsTech / Automation",
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2670&auto=format&fit=crop",
-    gallery: [
-      "https://images.unsplash.com/photo-1565793979892-18b59f18b69f?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1601598851547-4302969d0614?q=80&w=2669&auto=format&fit=crop",
-    ],
-    challenge:
-      "Operations ran on a patchwork of spreadsheets, WhatsApp threads, and 3 incompatible legacy tools. Carrier disputes took 2–3 weeks to resolve. The team had no live visibility into shipment status across 12 carrier partners.",
-    solution:
-      "We built a unified operations platform with direct API integrations to 12 carriers, an automated document generation engine, and a real-time shipment map. A rules engine auto-assigns carriers based on cost, SLA, and load type, cutting manual dispatch work by 80%.",
-    results: [
-      { label: "Manual dispatch work", value: "−80%" },
-      { label: "Carrier dispute time", value: "2 wks → 2 hrs" },
-      { label: "On-time delivery rate", value: "+31%" },
-      { label: "Carrier integrations", value: "12" },
+      { label: "Pipeline visibility", value: "$39M tracked" },
+      { label: "Offer turnaround", value: "−71%" },
+      { label: "Email triage time", value: "−4 hrs/week" },
+      { label: "Project workspaces", value: "Unlimited" },
     ],
     techStack: [
       { name: "Next.js", category: "Frontend" },
-      { name: "Python", category: "Backend" },
-      { name: "FastAPI", category: "Backend" },
-      { name: "Kafka", category: "Streaming" },
-      { name: "PostgreSQL", category: "Database" },
-      { name: "Mapbox", category: "Mapping" },
-      { name: "Docker", category: "Infrastructure" },
-      { name: "GCP", category: "Infrastructure" },
+      { name: "TypeScript", category: "Frontend" },
+      { name: "Tailwind CSS", category: "Frontend" },
+      { name: "Postgres", category: "Database" },
+      { name: "Drizzle", category: "ORM" },
+      { name: "OpenAI", category: "AI" },
+      { name: "Resend", category: "Email" },
+      { name: "Vercel", category: "Infrastructure" },
     ],
     process: [
       {
         step: 1,
-        title: "Operations Audit",
+        title: "Workflow Mapping",
         description:
-          "Mapped every manual touchpoint across the dispatch, tracking, and settlement workflows to quantify automation opportunity.",
+          "Interviewed sales advisors and brokers to chart how the same lead crosses between general prospecting and project-specific offer rounds.",
       },
       {
         step: 2,
-        title: "Carrier API Research",
+        title: "Workspace Model",
         description:
-          "Evaluated and scoped integrations for all 12 carriers — each with unique authentication, rate, and tracking schemas.",
+          "Designed a data layer where contacts and templates are global, but offers, units, and pipelines bind to a project context.",
       },
       {
         step: 3,
-        title: "Core Platform Build",
+        title: "AI Layering",
         description:
-          "Built the rules engine and carrier integration layer first; the UI was layered on proven backend logic.",
+          "Added Gemini- and GPT-backed flows for offer drafting, inbox summarization, and pipeline Q&A on top of the structured CRM data.",
       },
       {
         step: 4,
-        title: "Migration & Training",
+        title: "Launch & Onboarding",
         description:
-          "Ran parallel operations for 4 weeks during transition, with on-site training for dispatch and ops teams.",
+          "Migrated the Hudson 8 pipeline live, then trained the team in two sessions. The platform replaced four separate tools.",
       },
     ],
   },
   {
-    id: "edulearn",
-    title: "EduLearn",
-    tagline: "Adaptive learning platform with personalized content paths.",
+    id: "unified-crm",
+    title: "Unified CRM",
+    tagline: "A configurable CRM that ships per business, on a subscription.",
     description:
-      "An AI-powered education platform that continuously adapts lesson sequencing, difficulty, and format to each learner's performance profile — dramatically improving completion rates and knowledge retention.",
-    year: "2023",
-    client: "EduLearn Global",
-    duration: "8 months",
-    role: "Full-stack development, ML pipeline, content system",
-    category: "EdTech / AI",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2670&auto=format&fit=crop",
+      "Unified CRM (NexusCRM) is a single multi-tenant codebase that lets every customer tailor their pipeline stages, deal fields, dashboards, and automations to their own business — without forking the product. New tenants are provisioned in minutes, billing is subscription-based, and a no-code config layer means most customizations never touch engineering.",
+    year: "2026",
+    client: "Mindivo (productized SaaS)",
+    duration: "6 months",
+    role: "SaaS architecture, billing, configuration engine",
+    category: "SaaS / CRM Platform",
+    image: "/unified crm/Screenshot 2026-05-04 181440.png",
+    liveUrl: "https://crm-02.vercel.app/",
     gallery: [
-      "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2674&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=2670&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2670&auto=format&fit=crop",
+      "/unified crm/Screenshot 2026-05-04 181410.png",
+      "/unified crm/Screenshot 2026-05-04 181440.png",
+      "/unified crm/analytics.jpg",
     ],
     challenge:
-      "A one-size-fits-all curriculum left 60% of learners either under-challenged or overwhelmed. Course completion hovered at 22% and learner satisfaction scores were declining despite new content investments.",
+      "Small and mid-sized businesses kept asking for a CRM that fit how they actually sell — but bespoke builds were out of reach and off-the-shelf tools forced them to bend their process to the software. We needed a single product that could honestly ship as 'your CRM' for a dental clinic, a SaaS startup, and a logistics broker on day one.",
     solution:
-      "We built an adaptive engine using spaced repetition and item response theory to model each learner's mastery level in real time. Content paths are re-sequenced after every session. A React-based authoring tool lets educators create adaptive content without engineering help.",
+      "We built a configuration layer on top of a strict multi-tenant data model. Each tenant defines their own pipeline stages, custom fields, dashboard tiles, and automation rules — all stored as data, not code. A drag-and-drop pipeline, deal-velocity dashboard, and activity feed render dynamically from that config. Stripe handles tiered subscription billing end-to-end.",
     results: [
-      { label: "Course completion rate", value: "22% → 71%" },
-      { label: "Knowledge retention", value: "+44%" },
-      { label: "Active learners", value: "50,000+" },
-      { label: "Educator NPS", value: "72" },
+      { label: "Tenant onboarding", value: "< 10 min" },
+      { label: "Custom fields supported", value: "Unlimited" },
+      { label: "Dashboard load", value: "< 800ms" },
+      { label: "Pipeline value tracked", value: "$611k+" },
     ],
     techStack: [
-      { name: "React", category: "Frontend" },
+      { name: "Next.js", category: "Frontend" },
       { name: "TypeScript", category: "Frontend" },
-      { name: "Python", category: "ML / Backend" },
-      { name: "scikit-learn", category: "ML" },
+      { name: "Tailwind CSS", category: "Frontend" },
+      { name: "Node.js", category: "Backend" },
       { name: "PostgreSQL", category: "Database" },
-      { name: "Redis", category: "Caching" },
-      { name: "S3", category: "Storage" },
-      { name: "AWS", category: "Infrastructure" },
+      { name: "Stripe", category: "Billing" },
+      { name: "Clerk", category: "Auth" },
+      { name: "Vercel", category: "Infrastructure" },
     ],
     process: [
       {
         step: 1,
-        title: "Learner Research",
+        title: "Customer Archetypes",
         description:
-          "Analysed 2 years of engagement data and interviewed 30 learners to understand exactly where and why drop-off occurred.",
+          "Interviewed five very different small businesses to find the shared CRM primitives — and the parts they each needed to bend.",
       },
       {
         step: 2,
-        title: "Adaptive Engine Design",
+        title: "Config Engine",
         description:
-          "Designed the IRT-based mastery model and spaced repetition scheduler before writing a single line of product UI.",
+          "Designed a JSON-driven configuration layer that powers stages, fields, dashboards, and automations from a single tenant record.",
       },
       {
         step: 3,
-        title: "Content Authoring Tool",
+        title: "Subscription Billing",
         description:
-          "Built the educator-facing authoring system in parallel so content could be tagged and structured for the adaptive engine.",
+          "Wired Stripe with metered seats and feature flags so plan upgrades instantly unlock the right surface area in each tenant.",
       },
       {
         step: 4,
-        title: "Beta & Iteration",
+        title: "Self-Serve Onboarding",
         description:
-          "Ran a closed beta with 2,000 learners for 6 weeks, tuning model weights before the full 50k-learner launch.",
+          "Built a guided setup that gets a new business from sign-up to a populated pipeline in under ten minutes.",
+      },
+    ],
+  },
+  {
+    id: "second-opinion",
+    title: "Second Opinion",
+    tagline: "AI-powered plain-English explanations for medical lab reports.",
+    description:
+      "Second Opinion lets patients upload a lab report — bloodwork, imaging summaries, biomarker panels — and instantly get a Gemini-generated breakdown in plain English, with values flagged as 'Follow up soon', 'Discuss with your doctor', or 'Monitor'. The platform is privacy-first by design: API keys live in the user's browser, reports are never persisted on our servers.",
+    year: "2026",
+    client: "Mindivo (consumer health)",
+    duration: "3 months",
+    role: "Product engineering, AI prompt design, privacy architecture",
+    category: "HealthTech / Consumer AI",
+    image: "/second opinion/Screenshot 2026-05-04 181709.png",
+    liveUrl: "https://second-opinion-tau.vercel.app/",
+    gallery: [
+      "/second opinion/Screenshot 2026-05-04 181709.png",
+      "/second opinion/Screenshot 2026-05-04 181759.png",
+      "/second opinion/lab.jpg",
+    ],
+    challenge:
+      "Most patients walk out of a lab with a PDF full of acronyms — CBC, ESR, PCV, MCV — and no way to know what's serious until their next appointment, which can be weeks away. Existing health portals either oversimplify ('all normal') or dump raw reference ranges. Patients needed something in between: honest, specific, and not medical advice.",
+    solution:
+      "We built a Gemini-backed pipeline that parses the uploaded report, normalizes lab values against reference ranges, and produces a structured response: a plain-English summary, a 'things worth noting' list, and an action triage (follow up / discuss / monitor). Users bring their own free Gemini API key, so reports never leave their browser context — and we don't carry the medical-data liability.",
+    results: [
+      { label: "Avg. analysis time", value: "< 8s" },
+      { label: "Reports stored on server", value: "Zero" },
+      { label: "Lab formats supported", value: "PDF, image, text" },
+      { label: "Free-tier coverage", value: "100% of personal use" },
+    ],
+    techStack: [
+      { name: "Next.js", category: "Frontend" },
+      { name: "TypeScript", category: "Frontend" },
+      { name: "Tailwind CSS", category: "Frontend" },
+      { name: "Gemini API", category: "AI" },
+      { name: "PDF parsing", category: "Processing" },
+      { name: "LocalStorage", category: "Privacy" },
+      { name: "Edge runtime", category: "Backend" },
+      { name: "Vercel", category: "Infrastructure" },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Clinical Sanity-Check",
+        description:
+          "Worked through reference-range datasets and reviewed sample reports with a clinician advisor to define what the AI should and should not say.",
+      },
+      {
+        step: 2,
+        title: "Prompt & Schema Design",
+        description:
+          "Engineered a structured Gemini prompt that returns JSON with summary, notes, and triage buckets — so the UI never has to parse free-form text.",
+      },
+      {
+        step: 3,
+        title: "BYOK Privacy Model",
+        description:
+          "Built the bring-your-own-key flow so the user's Gemini key, lab files, and analyses live only in their browser's local storage.",
+      },
+      {
+        step: 4,
+        title: "Disclaimer & Polish",
+        description:
+          "Added the 'Not medical advice' framing throughout, refined the action triage UI, and shipped the free-tier launch.",
       },
     ],
   },

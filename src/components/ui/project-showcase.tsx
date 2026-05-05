@@ -3,45 +3,15 @@
 import type React from "react"
 import { useState, useRef, useEffect } from "react"
 import { ArrowUpRight } from "lucide-react"
+import { projects } from "@/lib/projects"
 
-interface Project {
-  title: string
-  description: string
-  year: string
-  link: string
-  image: string
-}
-
-const mindivoProjects: Project[] = [
-  {
-    title: "RetailPro",
-    description: "End-to-end retail management SaaS with real-time analytics.",
-    year: "2024",
-    link: "/projects/retailpro",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2670&auto=format&fit=crop",
-  },
-  {
-    title: "MedTrack",
-    description: "HIPAA-compliant patient monitoring and care coordination app.",
-    year: "2024",
-    link: "/projects/medtrack",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2670&auto=format&fit=crop",
-  },
-  {
-    title: "LogiFlow",
-    description: "Supply-chain digitization and logistics automation platform.",
-    year: "2023",
-    link: "/projects/logiflow",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2670&auto=format&fit=crop",
-  },
-  {
-    title: "EduLearn",
-    description: "Adaptive learning platform with personalized content paths.",
-    year: "2023",
-    link: "/projects/edulearn",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2670&auto=format&fit=crop",
-  },
-]
+const mindivoProjects = projects.map((p) => ({
+  title: p.title,
+  description: p.tagline,
+  year: p.year,
+  link: `/projects/${p.id}`,
+  image: p.image,
+}))
 
 export function ProjectShowcase() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
